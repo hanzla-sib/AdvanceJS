@@ -51,3 +51,19 @@ const newArray = array.map((element) => {
 ---
 
 📌 **Keep Learning & Keep Coding! 🚀**
+
+
+
+First class funcitons in JS
+in JS these funtions are assigned to variables and passed as arguments
+function displayResult(result) {
+  console.log(result);
+}
+
+function add(a, b, callback) {
+  let sum = a + b;
+  callback(sum);
+}
+
+
+add(1,3,displayResult)
