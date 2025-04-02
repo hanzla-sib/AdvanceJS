@@ -119,3 +119,32 @@ const maxValue = numbers.reduce(
 );
 
 console.log("max number ", maxValue);
+
+
+this Keyword
+this is a simple object
+
+const restaurant={
+    name:"hanzla",
+    order:function(){
+        console.log(this.name)
+    }
+}
+
+restaurant.order()
+
+
+
+const restaurant={
+    name:"hanzla",
+    order:function(){
+        const helper=()=>{
+            console.log(this.name)
+        }
+      helper()
+    }
+}
+
+restaurant.order()
+
+if no arrow fucntion then this is undefined, as when use arrow function it has no owned this, but simple funciton have their own this 

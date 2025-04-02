@@ -64,9 +64,33 @@ var numbers = [1, 2, 5, 44, 10, 11, 23];
 
 //find max with reduce
 
-const maxValue = numbers.reduce(
-  (max, num) => (num > max ? num : max),
-  numbers[0]
-);
+// const maxValue = numbers.reduce(
+//   (max, num) => (num > max ? num : max),
+//   numbers[0]
+// );
 
-console.log("max number ", maxValue);
+// console.log("max number ", maxValue);
+
+//this keyword
+
+// const restaurant={
+//     name:"hanzla",
+//     order:function(){
+//         console.log(this.name)
+//     }
+// }
+
+// restaurant.order()
+
+
+const restaurant={
+    name:"hanzla",
+    order:function(){
+        const helper=()=>{
+            console.log(this.name)
+        }
+      helper()
+    }
+}
+
+restaurant.order()
