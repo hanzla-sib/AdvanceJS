@@ -189,3 +189,25 @@ son.canDance = true;
 
 
 console.log("son ",son.canSing)
+
+Pure vs impure fucntions
+a pure fucntion is function that always gives the same output for the same input.
+has no side effect does not change external varaibles, DOM,API,calls,etc
+
+like func(a,b){
+    console.log(a+b) //always gives same output on same input
+}
+
+
+impure function
+may return diff outputs for the same input
+has side effects modifies external varaibles, DOM,API,LOGS,etc
+
+let total=10;
+function addtoTotal(num){
+    total+=num //modifies external varaible
+    return total
+
+}
+console.log(addtoTotal(5)) // 15
+console.log(addtoTotal(5)) //20
