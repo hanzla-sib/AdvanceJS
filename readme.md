@@ -82,3 +82,14 @@ function Bye(){
 }
 
 Greet("hanzla ",Bye)
+
+or
+
+function multiplyBy(factor){
+    return function(num){
+        return num*factor
+    }
+}
+
+const double=multiplyBy(5);
+console.log(double(3))

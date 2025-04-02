@@ -40,3 +40,14 @@ var numbers = [1, 2, 5, 10, 11, 23];
 // }
 
 // Greet("hanzla ",Bye)
+
+// or
+
+// function multiplyBy(factor){
+//     return function(num){
+//         return num*factor
+//     }
+// }
+
+// const double=multiplyBy(5);
+// console.log(double(3))
