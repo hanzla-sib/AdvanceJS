@@ -67,3 +67,18 @@ function add(a, b, callback) {
 
 
 add(1,3,displayResult)
+
+
+Higher order function
+its a fucntion that takes another funciton as an argument or return a functions as a result (or both)
+
+function Greet (name,callback){
+console.log("Hi ",name)
+callback()
+}
+
+function Bye(){
+    console.log("bye ")
+}
+
+Greet("hanzla ",Bye)

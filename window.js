@@ -16,14 +16,27 @@ var numbers = [1, 2, 5, 10, 11, 23];
 
 // console.log(mulThree)
 
-function displayResult(result) {
-  console.log(result);
-}
+// function displayResult(result) {
+//   console.log(result);
+// }
 
-function add(a, b, callback) {
-  let sum = a + b;
-  callback(sum);
-}
+// function add(a, b, callback) {
+//   let sum = a + b;
+//   callback(sum);
+// }
 
 
-add(1,3,displayResult)
+// add(1,3,displayResult)
+
+//Higher order function
+
+// function Greet (name,callback){
+// console.log("Hi ",name)
+// callback()
+// }
+
+// function Bye(){
+//     console.log("bye ")
+// }
+
+// Greet("hanzla ",Bye)
