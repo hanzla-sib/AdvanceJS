@@ -211,3 +211,10 @@ function addtoTotal(num){
 }
 console.log(addtoTotal(5)) // 15
 console.log(addtoTotal(5)) //20
+
+
+Clousers in JS
+a clousure is when a function remembers the varaibles from its outer function even after the outer function has finished executing.
+
+
+let and const are block scoped varaibles
