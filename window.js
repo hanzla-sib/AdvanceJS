@@ -13,6 +13,6 @@ var numbers=[1,2,5,10,11,23]
 
 
 //map
-numbers.map((num)=>num*3)
+const mulThree=numbers.map((num)=>num*3)
 
-console.log(numbers)
+console.log(mulThree)
