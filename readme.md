@@ -148,3 +148,8 @@ const restaurant={
 restaurant.order()
 
 if no arrow fucntion then this is undefined, as when use arrow function it has no owned this, but simple funciton have their own this 
+
+
+
+Constructor Functions
+used to create and initialize objects
