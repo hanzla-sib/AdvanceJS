@@ -4,7 +4,7 @@
 The `window` object is a global object provided by the browser, acting as a container for various features not part of core JavaScript.
 
 ### 🔹 Important Properties & Methods
-- `window.location` → Returns the URL (href) of the current window.
+- `window.location.href` → Returns the URL (href) of the current window.
 - `window.innerHeight` → Gets the current window height.
 
 ### 🔹 `var` vs. `let` & `const`
@@ -35,27 +35,24 @@ Everything else is **truthy**.
 ### 🔹 `forEach()`
 ```js
 array.forEach((element, index, array) => {
-    // Performs operation on each element
+    console.log(element, index);
 });
 ```
-📌 **Drawback** → It modifies the original array.
+📌 **Drawback** → It does not modify the original array, but it does not return a new array either.
 
 ### 🔹 `map()`
 ```js
-const newArray = array.map((element) => {
-    return element * 2; // Example: multiplying each element by 2
-});
+const newArray = array.map((element) => element * 2); // Example: multiplying each element by 2
+console.log(newArray);
 ```
 📌 **Advantage** → Creates a **new array** without modifying the original one.
 
 ---
 
-📌 **Keep Learning & Keep Coding! 🚀**
+## 🎯 First-Class Functions in JavaScript
 
-
-
-First class funcitons in JS
-in JS these funtions are assigned to variables and passed as arguments
+### 🔹 Functions Assigned to Variables & Passed as Arguments
+```js
 function displayResult(result) {
   console.log(result);
 }
@@ -65,119 +62,133 @@ function add(a, b, callback) {
   callback(sum);
 }
 
+add(1, 3, displayResult);
+```
 
-add(1,3,displayResult)
+---
 
+## 🎯 Higher-Order Functions
 
-Higher order function
-its a fucntion that takes another funciton as an argument or return a functions as a result (or both)
-
-function Greet (name,callback){
-console.log("Hi ",name)
-callback()
+### 🔹 A function that takes another function as an argument or returns a function
+```js
+function Greet(name, callback) {
+  console.log("Hi", name);
+  callback();
 }
 
-function Bye(){
-    console.log("bye ")
+function Bye() {
+  console.log("Bye");
 }
 
-Greet("hanzla ",Bye)
+Greet("Hanzla", Bye);
+```
 
-or
-
-function multiplyBy(factor){
-    return function(num){
-        return num*factor
-    }
+```js
+function multiplyBy(factor) {
+  return function (num) {
+    return num * factor;
+  };
 }
 
-const double=multiplyBy(5);
-console.log(double(3))
+const double = multiplyBy(5);
+console.log(double(3));
+```
 
+---
 
-filter and reduce
+## 🔄 `filter()` & `reduce()`
 
-filter --> Selective filtering
-the fileter method crates a new array with elements that pass a given conditon
-// Array.filter((element,index,array))
-const even=numbers.filter(num=>num%2==0)
+### 🔹 `filter()` → Selective Filtering
+```js
+const numbers = [1, 2, 3, 4, 5, 6];
+const even = numbers.filter(num => num % 2 === 0);
+console.log(even);
+```
 
+### 🔹 `reduce()` → Reducing an Array to a Single Value
+```js
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log("Sum:", sum);
+```
 
-Reduce --> reducing an array to a single value
-array.reduce((accumulator, currentvalue, index, array)=>{
-//logic
-},initailvalues)
+```js
+const maxValue = numbers.reduce((max, num) => (num > max ? num : max), numbers[0]);
+console.log("Max number:", maxValue);
+```
 
-const sum=numbers.reduce((acc,num)=> acc+num,0)
-console.log("sum ",sum)
+---
 
+## 🔥 `this` Keyword
 
+### 🔹 Using `this` Inside an Object
+```js
+const restaurant = {
+  name: "Hanzla",
+  order: function () {
+    console.log(this.name);
+  }
+};
 
-const maxValue = numbers.reduce(
-  (max, num) => (num > max ? num : max),
-  numbers[0]
-);
+restaurant.order();
+```
 
-console.log("max number ", maxValue);
+### 🔹 Using Arrow Functions to Preserve `this`
+```js
+const restaurant2 = {
+  name: "Hanzla",
+  order: function () {
+    const helper = () => {
+      console.log(this.name);
+    };
+    helper();
+  }
+};
 
+restaurant2.order();
+```
 
-this Keyword
-this is a simple object
+---
 
-const restaurant={
-    name:"hanzla",
-    order:function(){
-        console.log(this.name)
-    }
+## 🏗️ Constructor Functions
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
 }
 
-restaurant.order()
+const person1 = new Person("Hanzla", 25);
+console.log(person1.name);
+```
 
+---
 
-
-const restaurant={
-    name:"hanzla",
-    order:function(){
-        const helper=()=>{
-            console.log(this.name)
-        }
-      helper()
-    }
-}
-
-restaurant.order()
-
-if no arrow fucntion then this is undefined, as when use arrow function it has no owned this, but simple funciton have their own this 
-
-
-
-Constructor Functions
-used to create and initialize objects
-
-IIFE imediately invoked functions expressions
-its a functon which executes imediately after being defined. it is enclosed within parenthesis and called instantaly
+## 🚀 IIFE (Immediately Invoked Function Expressions)
+```js
 (function () {
-  console.log("hanzla is good");
+  console.log("Hanzla is good");
 })();
-its values are not accesible globaly and
-we dont have to call the fucntion it seperately
+```
 
+```js
 var ans = (function () {
-  var name = "hanzla";
+  var name = "Hanzla";
   return {
     getter: function () {
       console.log(name);
     },
-    setter: function (updatename) {
-      name = updatename;
-    },
+    setter: function (updateName) {
+      name = updateName;
+    }
   };
 })();
-ans.getter()
 
+ans.getter();
+```
 
-//prototyping  or Inheritence
+---
 
+## 🌐 Prototyping & Inheritance
+```js
 const parent = {
   canTalk: true,
   canWalk: true,
@@ -186,35 +197,59 @@ const parent = {
 
 const son = Object.create(parent);
 son.canDance = true;
+console.log("Son can sing:", son.canSing);
+```
 
+---
 
-console.log("son ",son.canSing)
+## 🎯 Pure vs. Impure Functions
 
-Pure vs impure fucntions
-a pure fucntion is function that always gives the same output for the same input.
-has no side effect does not change external varaibles, DOM,API,calls,etc
+### 🔹 Pure Function
+```js
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3));
+```
 
-like func(a,b){
-    console.log(a+b) //always gives same output on same input
+### 🔹 Impure Function
+```js
+let total = 10;
+function addToTotal(num) {
+  total += num;
+  return total;
+}
+console.log(addToTotal(5)); // 15
+console.log(addToTotal(5)); // 20
+```
+
+---
+
+## 🔗 Closures in JavaScript
+```js
+function outerFunction(outerVariable) {
+  return function innerFunction(innerVariable) {
+    console.log("Outer Variable:", outerVariable);
+    console.log("Inner Variable:", innerVariable);
+  };
 }
 
+const newFunction = outerFunction("Outside");
+newFunction("Inside");
+```
 
-impure function
-may return diff outputs for the same input
-has side effects modifies external varaibles, DOM,API,LOGS,etc
+---
 
-let total=10;
-function addtoTotal(num){
-    total+=num //modifies external varaible
-    return total
-
+## 🌟 `let` & `const` Are Block-Scoped Variables
+```js
+if (true) {
+  let a = 10;
+  const b = 20;
+  console.log(a, b);
 }
-console.log(addtoTotal(5)) // 15
-console.log(addtoTotal(5)) //20
+// console.log(a, b); // ReferenceError
+```
 
+---
 
-Clousers in JS
-a clousure is when a function remembers the varaibles from its outer function even after the outer function has finished executing.
-
-
-let and const are block scoped varaibles
+📌 **Keep Learning & Keep Coding! 🚀**
