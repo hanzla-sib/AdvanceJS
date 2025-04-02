@@ -153,3 +153,39 @@ if no arrow fucntion then this is undefined, as when use arrow function it has n
 
 Constructor Functions
 used to create and initialize objects
+
+IIFE imediately invoked functions expressions
+its a functon which executes imediately after being defined. it is enclosed within parenthesis and called instantaly
+(function () {
+  console.log("hanzla is good");
+})();
+its values are not accesible globaly and
+we dont have to call the fucntion it seperately
+
+var ans = (function () {
+  var name = "hanzla";
+  return {
+    getter: function () {
+      console.log(name);
+    },
+    setter: function (updatename) {
+      name = updatename;
+    },
+  };
+})();
+ans.getter()
+
+
+//prototyping  or Inheritence
+
+const parent = {
+  canTalk: true,
+  canWalk: true,
+  canSing: true,
+};
+
+const son = Object.create(parent);
+son.canDance = true;
+
+
+console.log("son ",son.canSing)

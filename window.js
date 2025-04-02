@@ -82,15 +82,45 @@ var numbers = [1, 2, 5, 44, 10, 11, 23];
 
 // restaurant.order()
 
+// const restaurant={
+//     name:"hanzla",
+//     order:function(){
+//         const helper=()=>{
+//             console.log(this.name)
+//         }
+//       helper()
+//     }
+// }
 
-const restaurant={
-    name:"hanzla",
-    order:function(){
-        const helper=()=>{
-            console.log(this.name)
-        }
-      helper()
-    }
-}
+// restaurant.order()
 
-restaurant.order()
+// (function () {
+//   console.log("hanzla is good");
+// })();
+
+// var ans = (function () {
+//   var name = "hanzla";
+//   return {
+//     getter: function () {
+//       console.log(name);
+//     },
+//     setter: function (updatename) {
+//       name = updatename;
+//     },
+//   };
+// })();
+// ans.getter()
+
+//prototyping
+
+const parent = {
+  canTalk: true,
+  canWalk: true,
+  canSing: true,
+};
+
+const son = Object.create(parent);
+son.canDance = true;
+
+
+console.log("son ",son.canSing)
