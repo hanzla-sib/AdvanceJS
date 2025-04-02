@@ -101,3 +101,12 @@ filter --> Selective filtering
 the fileter method crates a new array with elements that pass a given conditon
 // Array.filter((element,index,array))
 const even=numbers.filter(num=>num%2==0)
+
+
+Reduce --> reducing an array to a single value
+array.reduce((accumulator, currentvalue, index, array)=>{
+//logic
+},initailvalues)
+
+const sum=numbers.reduce((acc,num)=>acc+num,0)
+console.log("sum ",sum)

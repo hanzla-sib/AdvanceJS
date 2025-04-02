@@ -56,6 +56,10 @@ var numbers = [1, 2, 5, 10, 11, 23];
 // Filters
 // Array.filter((element,index,array))
 
-const even=numbers.filter(num=>num%2==0)
+// const even=numbers.filter(num=>num%2==0)
 
-console.log("even nums ",even)
+// console.log("even nums ",even)
+
+//Reduce
+// const sum=numbers.reduce((acc,num)=>acc+num,0)
+// console.log("sum ",sum)
