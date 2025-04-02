@@ -108,5 +108,14 @@ array.reduce((accumulator, currentvalue, index, array)=>{
 //logic
 },initailvalues)
 
-const sum=numbers.reduce((acc,num)=>acc+num,0)
+const sum=numbers.reduce((acc,num)=> acc+num,0)
 console.log("sum ",sum)
+
+
+
+const maxValue = numbers.reduce(
+  (max, num) => (num > max ? num : max),
+  numbers[0]
+);
+
+console.log("max number ", maxValue);
