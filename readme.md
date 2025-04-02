@@ -93,3 +93,11 @@ function multiplyBy(factor){
 
 const double=multiplyBy(5);
 console.log(double(3))
+
+
+filter and reduce
+
+filter --> Selective filtering
+the fileter method crates a new array with elements that pass a given conditon
+// Array.filter((element,index,array))
+const even=numbers.filter(num=>num%2==0)

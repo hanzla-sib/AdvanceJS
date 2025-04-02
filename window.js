@@ -51,3 +51,11 @@ var numbers = [1, 2, 5, 10, 11, 23];
 
 // const double=multiplyBy(5);
 // console.log(double(3))
+
+
+// Filters
+// Array.filter((element,index,array))
+
+const even=numbers.filter(num=>num%2==0)
+
+console.log("even nums ",even)
