@@ -252,4 +252,40 @@ if (true) {
 
 ---
 
+# JavaScript Notes: Parallel Data Fetching with Promise.all & Async/Await
+
+---
+
+## 🔄 Parallel Data Fetching with **Promise.all**
+
+This example uses **Promise.all** to fetch data in parallel from an array of URLs. If any fetch fails, the entire Promise.all will reject.
+
+```js
+// Array of API endpoints (or any URLs)
+const urls = [
+  'https://api.example.com/data1',
+  'https://api.example.com/data2',
+  'https://api.example.com/data3'
+];
+
+// Map each URL to a fetch promise
+const fetchPromises = urls.map(url =>
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network error: ${response.status} for ${url}`);
+      }
+      return response.json();
+    })
+);
+
+// Using Promise.all to run all fetch requests in parallel
+Promise.all(fetchPromises)
+  .then(results => {
+    console.log('All data fetched successfully:', results);
+  })
+  .catch(error => {
+    console.error('One or more requests failed:', error);
+  });
+
 📌 **Keep Learning & Keep Coding! 🚀**
