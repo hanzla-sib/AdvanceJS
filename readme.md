@@ -12,7 +12,7 @@ The `window` object is a global object provided by the browser, acting as a cont
 - `let` and `const` are **not** properties of `window`.
 
 ---
-l
+
 ## ✅ Truthy & Falsy Values
 
 ### 🔹 **Falsy Values:**
