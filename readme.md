@@ -343,6 +343,53 @@ fetchDataWithSettled();
 
 This method is useful when you want to collect results from multiple API requests without breaking the entire process due to a single failure.
 
+
+## 🎯 Generator Functions in JavaScript
+
+### 🔹 Introduction to Generators
+Generator functions in JavaScript allow you to pause execution and resume it later, making them useful for handling large data sets or implementing infinite sequences efficiently.
+
+### 🔹 Generator Function Using `while` Loop
+```js
+function* infiniteCounter() {
+    let count = 0;
+    while (true) {
+        yield count;
+        count++;
+    }
+}
+
+const counter = infiniteCounter();
+console.log(counter.next().value); // 0
+console.log(counter.next().value); // 1
+console.log(counter.next().value); // 2
+```
+
+📌 **Use Case:** Generators can be used in pagination, handling infinite sequences, or efficiently managing large datasets in a memory-efficient manner.
+
+### 🔹 Practical Use Case: Generating Unique IDs
+```js
+function* idGenerator() {
+    let id = 1;
+    while (true) {
+        yield `USER-${id}`;
+        id++;
+    }
+}
+
+const generateID = idGenerator();
+console.log(generateID.next().value); // USER-1
+console.log(generateID.next().value); // USER-2
+console.log(generateID.next().value); // USER-3
+```
+
+📌 **Why Use Generators?**
+- They provide a memory-efficient way to iterate over large or infinite sequences.
+- Unlike regular functions, they don't execute all at once but rather pause and resume execution when needed.
+
+---
+
+
 Happy coding! 🚀
 
 📌 **Keep Learning & Keep Coding! 🚀**

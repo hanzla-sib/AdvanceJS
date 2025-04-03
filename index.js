@@ -165,3 +165,15 @@ var numbers = [1, 2, 5, 44, 10, 11, 23];
 //   console.log("ress ",res)
 // };
 // executeAll()
+
+function* genNumber() {
+  let i = 0;
+
+  while (true) {
+    yield i++;
+  }
+}
+
+const gen = genNumber();
+
+console.log("gen ", gen.next());
