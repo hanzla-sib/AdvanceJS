@@ -113,14 +113,55 @@ var numbers = [1, 2, 5, 44, 10, 11, 23];
 
 //prototyping
 
-const parent = {
-  canTalk: true,
-  canWalk: true,
-  canSing: true,
-};
+// const parent = {
+//   canTalk: true,
+//   canWalk: true,
+//   canSing: true,
+// };
 
-const son = Object.create(parent);
-son.canDance = true;
+// const son = Object.create(parent);
+// son.canDance = true;
 
+// console.log("son ",son.canSing)
 
-console.log("son ",son.canSing)
+//Promise Parrelization
+//promise.all
+// const urlList = [
+//   "https://meowfacts.herokuapp.com/?id=1",
+//   "https://meowfacts.herokuapp.com/?id=2",
+//   "https://meowfacts.herokuapp.com/?id=3",
+//   "https://meowfacts.herokuapp.com",
+//   "https://meowfacts.herokuapp.com/?id=5",
+//   "https://meowfacts.herokuapp.com/?id=6",
+// ];
+
+// const getApi = async (url) => {
+//   const data = await fetch(url);
+//   return data.json();
+// };
+
+// const executeAll = async () => {
+//   const res = await Promise.all(urlList.map((url) => getApi(url)));
+//   console.log("ress ",res)
+// };
+// executeAll()
+// promsie.allsettled
+// const urlList = [
+//   "https://meowfacts.herokuapp.com/?id=1",
+//   "https://meowfacts.herokuapp.com/?id=2",
+//   "https://meowfacts.herokuapp.com/?id=3",
+//   "https://meowfacts.herokuapp.com/?id=4",
+//   "https://meowfacts.herokuapp.com/?id=5",
+//   "https://meowfacts.herokuapp.com/?id=6",
+// ];
+
+// const getApi = async (url) => {
+//   const data = await fetch(url);
+//   return data.json();
+// };
+
+// const executeAll = async () => {
+//   const res = await Promise.all(urlList.map((url) => getApi(url)));
+//   console.log("ress ",res)
+// };
+// executeAll()
