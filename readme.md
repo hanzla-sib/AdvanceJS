@@ -288,4 +288,61 @@ Promise.all(fetchPromises)
     console.error('One or more requests failed:', error);
   });
 
+
+# JavaScript Notes: Parallel Data Fetching with Promise.allSettled
+
+---
+
+## 🔄 Handling Parallel Data Fetching with **Promise.allSettled**
+
+Unlike `Promise.all`, which fails immediately if any promise rejects, `Promise.allSettled` waits for all promises to complete and returns an array with both fulfilled and rejected results.
+
+```js
+// Array of API endpoints (or any URLs)
+const urls = [
+  'https://api.example.com/data1',
+  'https://api.example.com/data2',
+  'https://api.example.com/data3'
+];
+
+async function fetchDataWithSettled() {
+  // Map each URL to a fetch promise
+  const fetchPromises = urls.map(async url => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Network error: ${response.status} for ${url}`);
+      }
+      return await response.json();
+    } catch (error) {
+      // Return error to be processed by Promise.allSettled
+      return Promise.reject(error);
+    }
+  });
+
+  // Wait for all promises to settle (either resolved or rejected)
+  const results = await Promise.allSettled(fetchPromises);
+  results.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      console.log(`Request ${index} succeeded:`, result.value);
+    } else {
+      console.error(`Request ${index} failed:`, result.reason);
+    }
+  });
+}
+
+// Call the async function
+fetchDataWithSettled();
+```
+
+---
+
+📌 **Key Differences Between `Promise.all` and `Promise.allSettled`:**
+- **`Promise.all`** → Fails immediately if any promise rejects.
+- **`Promise.allSettled`** → Waits for all promises to finish and provides detailed results (both success and failure).
+
+This method is useful when you want to collect results from multiple API requests without breaking the entire process due to a single failure.
+
+Happy coding! 🚀
+
 📌 **Keep Learning & Keep Coding! 🚀**
